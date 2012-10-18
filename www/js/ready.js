@@ -18,18 +18,20 @@ function deviceReady() {
                 // $angle.text('?');
             }
             else {
-                $city.text(angle);
-                // $angle.text('' + angle + '°');
+                log('angle=' + angle);
+                log('rotate=' + (360 - angle));
                 $('#map').css({
                     'transform' : 'rotate(' + (360 - angle) + 'deg)'
                 });
+                $city.text(360 - angle);
+                $angle.text('' + (360 - angle) + '°');
             }
         },
         function() {
             // nothing yet
             // $('#city').text('');
         },
-        { frequency : 1000 }
+        { frequency : 3000 }
     );
 
     log('deviceReady(): exit');
