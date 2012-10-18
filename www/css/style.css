@@ -40,6 +40,15 @@ body {
     height: 200px;
 }
 
+#angle {
+    background-color: #eee;
+    border-radius: 15px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+}
+
 .c {
     text-align: center;
 }
