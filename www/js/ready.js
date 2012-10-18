@@ -18,7 +18,7 @@ function deviceReady() {
             else {
                 $city.text(angle);
                 $('#map').css({
-                    'transform' : 'rotate(' + angle + 'deg)'
+                    'transform' : 'rotate(' + (360 - angle) + 'deg)'
                 });
             }
         },
