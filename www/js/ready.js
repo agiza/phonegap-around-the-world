@@ -12,14 +12,14 @@ function deviceReady() {
         function(heading) {
             var angle = parseInt(heading.magneticHeading, 10);
             var $city = $('#city');
-            var $angle= $('#angle');
+            // var $angle= $('#angle');
             if ( isNaN(angle) ) {
                 $city.text('[unknown]');
-                $angle.text('?');
+                // $angle.text('?');
             }
             else {
                 $city.text(angle);
-                $angle.text(angle + '°');
+                // $angle.text('' + angle + '°');
                 $('#map').css({
                     'transform' : 'rotate(' + (360 - angle) + 'deg)'
                 });
