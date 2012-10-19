@@ -25,20 +25,25 @@ function deviceReady() {
     function noop() {}
 
     // watch the compass
-    var watchId = navigator.compass.watchHeading(updateMap, noop, { frequency : 1000 } );
-
-    if ( false ) {
-        var a = 0;
-        setInterval(function() {
-            a+=5;
-            if ( a === 360 ) {
-                a = 0;
-            }
-            updateMap({ magneticHeading : a });
-        }, 1000);
-    }
+    var watchId = navigator.compass.watchHeading(updateMap, noop, { frequency : 2500 } );
 
     log('deviceReady(): exit');
 }
 
 document.addEventListener('deviceready', deviceReady, false);
+
+// fake some stuff
+if ( false ) {
+    var a = 0;
+    navigator.compass = {
+        watchHeading : function(success, failure, opts) {
+            var i = setInterval(function() {
+                a += 5;
+                if ( a > 360 ) { a -= 360; }
+                success({ magneticHeading : a });
+            }, opts.frequency);
+            return i;
+        }
+    };
+    deviceReady();
+}
