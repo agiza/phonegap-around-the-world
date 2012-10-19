@@ -19,8 +19,8 @@ function deviceReady() {
                 '-webkit-transform' : 'rotate(' + (360 - angle) + 'deg)',
                 'transform'         : 'rotate(' + (360 - angle) + 'deg)'
             });
-            $city.text((360 - angle));
-            $angle.text('' + angle + '°');
+            // $city.text(angle);
+            // $angle.text(angle + '°');
         }
     }
     function noop() {}
