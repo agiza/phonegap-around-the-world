@@ -15,13 +15,12 @@ function deviceReady() {
             $angle.text('?');
         }
         else {
-            log($('#map').css('transform'));
             $('#map').css({
                 '-webkit-transform' : 'rotate(' + (360 - angle) + 'deg)',
                 'transform'         : 'rotate(' + (360 - angle) + 'deg)'
             });
-            // $city.text(angle);
-            // $angle.text(angle + '°');
+            $city.text(angle);
+            $angle.text(angle + '°');
         }
     }
     function noop() {}
