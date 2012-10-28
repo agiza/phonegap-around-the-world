@@ -11,6 +11,13 @@ function log(msg) {
 
 var stats = [
     {
+        city : 'Taihape',
+        population : '2,000',
+        area : '26',
+        country : 'New Zealand',
+        density : '76.92'
+    },
+    {
         city : 'Beijing',
         population : '19,612,368',
         area : '16,801.25',
@@ -23,13 +30,6 @@ var stats = [
         area : '715.49',
         country : 'Finland',
         density : '1,391.13'
-    },
-    {
-        city : 'Liverpool',
-        population : '466,400',
-        area : '43.18',
-        country : 'United Kingdom',
-        density : '10,070'
     },
     {
         city : 'Reykjavík',
