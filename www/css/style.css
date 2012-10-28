@@ -48,6 +48,15 @@ body {
     padding: 10px;
 }
 
+#stats {
+    table-layout: fixed;
+    width: 100%;
+}
+
+#stats td {
+    text-align: center;
+}
+
 .c {
     text-align: center;
 }
