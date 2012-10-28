@@ -32,7 +32,7 @@ function deviceReady() {
     function noop() {}
 
     // watch the compass
-    var watchId = navigator.compass.watchHeading(updateMap, noop, { frequency : 2500 } );
+    var watchId = navigator.compass.watchHeading(updateMap, noop, { frequency : 100 } );
 
     log('deviceReady(): exit');
 }
