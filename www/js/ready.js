@@ -1,6 +1,12 @@
 function log(msg) {
     var $li = $('<li>').text((new Date()).toISOString() + ' : ' + msg);
-    $('#log').append($li);
+    var $log = $('#log');
+    $log.append($li);
+
+    var $lis = $('#log li');
+    if ( $lis.size() > 10 ) {
+        $($lis[0]).remove();
+    }
 }
 
 function deviceReady() {
