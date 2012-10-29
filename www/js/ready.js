@@ -1,3 +1,6 @@
+// ----------------------------------------------------------------------------
+// generic methods
+
 function log(msg) {
     var $li = $('<li>').text((new Date()).toISOString() + ' : ' + msg);
     var $log = $('#log');
@@ -8,6 +11,9 @@ function log(msg) {
         $($lis[0]).remove();
     }
 }
+
+// ----------------------------------------------------------------------------
+// data
 
 var stats = [
     {
@@ -68,8 +74,40 @@ var stats = [
     }
 ];
 
+// ----------------------------------------------------------------------------
+// parse.com
+
+// initialise the app (Application ID, JavaScript Key)
+Parse.initialize("Rxp5dzTelcnLnQYwLnkLDc1ZWcy3awLOo849Ujys", "hHzW82AsOxRx5sZr7LV80Bvh6odVmbOoATUnrp2L");
+
+// Simple syntax to create a new subclass of Parse.Object.
+var AppEvent = Parse.Object.extend("AppEvent");
+
+// ----------------------------------------------------------------------------
+// ready
+
 function deviceReady() {
     log('deviceReady(): entry');
+
+    // Create a new instance of the AppEvent, i.e. someone has opened the app
+    var openEvent = new AppEvent();
+    // openEvent.set("eventName", 'open');
+    // openEvent.set("deviceUuid", window.device && window.device.uuid);
+
+    openEvent.save({
+        eventName : 'open',
+        name      : window.device ? window.device.name     : 'n/a',
+        uuid      : window.device ? window.device.uuid     : 'n/a',
+        platform  : window.device ? window.device.platform : 'n/a',
+        version   : window.device ? window.device.version  : 'n/a'
+    }, {
+        success : function(event) {
+            log('Open Event saved successfully: id=' + event.id);
+        },
+        failure : function(event, err) {
+            log('Open Event save failed: ' + err);
+        }
+    });
 
     function updateMap(heading) {
         var angle = parseInt(heading.magneticHeading, 10);
